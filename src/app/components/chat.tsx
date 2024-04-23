@@ -7,6 +7,14 @@ export default function MyComponent() {
  
   return (
     <div>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Say something...
+          <input value={input} onChange={handleInputChange} className='text-black'/>
+        </label>
+        <button type="submit">Send</button>
+      </form>
+
       <ul>
         {messages.map((m, index) => (
           <li key={index}>
@@ -15,14 +23,6 @@ export default function MyComponent() {
           </li>
         ))}
       </ul>
- 
-      <form onSubmit={handleSubmit}>
-        <label>
-          Say something...
-          <input value={input} onChange={handleInputChange} className='text-black'/>
-        </label>
-        <button type="submit">Send</button>
-      </form>
     </div>
   );
 }
