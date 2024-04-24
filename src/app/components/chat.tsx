@@ -6,7 +6,12 @@ export default function MyComponent() {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
  
   return (
-    <div>
+    <main className="flex flex-col w-full h-screen max-h-dvh bg-background">
+
+      <header className="p-4 border-b w-full max-w-3xl mx-auto">
+          <h1 className="text-2xl font-bold">AI Chat</h1>
+      </header>
+
       <form onSubmit={handleSubmit}>
         <label>
           Say something...
@@ -23,6 +28,6 @@ export default function MyComponent() {
           </li>
         ))}
       </ul>
-    </div>
+    </main>
   );
 }
