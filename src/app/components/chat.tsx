@@ -20,14 +20,27 @@ export default function MyComponent() {
         <button type="submit">Send</button>
       </form>
 
-      <ul>
-        {messages.map((m, index) => (
-          <li key={index}>
-            {m.role === 'user' ? 'User: ' : 'AI: '}
-            {m.content}
-          </li>
-        ))}
-      </ul>
+      <section className="container px-0 pb-10 flex flex-col flex-grow gap-4 mx-auto max-w-3xl">
+                <ul className="h-1 p-4 flex-grow bg-muted/50 rounded-lg overflow-y-auto flex flex-col gap-4">
+                    {messages.map((m, index) => (
+                        <>
+                            {m.role === 'user' ? (
+                                <li key={index} className="flex flex-row">
+                                    <div className="rounded-xl p-4 bg-background shadow-md flex">
+                                        <p className="text-primary">{m.content}</p>
+                                    </div>
+                                </li>
+                            ) : (
+                                <li key={index} className="flex flex-row-reverse">
+                                    <div className="rounded-xl p-4 bg-background shadow-md flex w-3/4">
+                                        <p className="text-primary"><span className="font-bold">Answer: </span>{m.content}</p>
+                                    </div>
+                                </li>
+                            )}
+                        </>
+                    ))}
+                </ul >
+            </section>
     </main>
   );
 }
