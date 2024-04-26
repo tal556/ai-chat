@@ -12,16 +12,13 @@ export default function MyComponent() {
           <h1 className="text-2xl font-bold">AI Chat</h1>
       </header>
 
-      <form onSubmit={handleSubmit}>
-        <label>
-          Say something...
-          <input value={input} onChange={handleInputChange} className='text-black'/>
-        </label>
-        <button type="submit">Send</button>
+      <form onSubmit={handleSubmit} className='container py-3 flex flex-row max-w-3xl m-auto justify-between gap-1'>
+        <input value={input} onChange={handleInputChange} className='text-black w-full rounded-xl'/>
+        <button type="submit" className=''>Send</button>
       </form>
 
       <section className="container px-0 pb-10 flex flex-col flex-grow gap-4 mx-auto max-w-3xl">
-                <ul className="h-1 p-4 flex-grow bg-muted/50 rounded-lg overflow-y-auto flex flex-col gap-4">
+                <ul className="h-1 py-4 flex-grow bg-muted/50 rounded-lg overflow-y-auto flex flex-col gap-4">
                     {messages.map((m, index) => (
                         <>
                             {m.role === 'user' ? (
